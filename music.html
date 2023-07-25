@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Week 12 Music CRUD App Final Project</title>
+             <!-- My Header intro -->
+          <h1> Music is in my DNA, and it's my 'Zen' and my family! </h1>
+
+</head>
+<body>
+         <!--Bootstrap -->
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+          crossorigin="anonymous"/>
+
+          <!-- Custom CSS Styles -->
+          <link rel="stylesheet" href="style.css"/>
+ 
+     <div class="container">
+          <h2 class="mt-5 mb-5"> Please enter your information, so I can follow, and get to know you Thanks! </h2>
+
+          
+          <div class="mb-5">
+            <div class="row">
+              <div class="form-group col-md-6 mb-3"> 
+                    <br>
+             <label for="name">Name</label>
+          <input type="text"
+                  name="name"
+                  class="form-control"
+                  id="name"
+                  placeholder="Enter Name"
+                  /> 
+                  <br> 
+                  </div>
+                  <br>
+          <div class="form-group col-md-6 mb-3"> 
+                    <br>
+          <label for="email">Email</label>
+          <input type="text"
+                    name="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter Your Email"
+                    />  
+                              <br>    
+                    </div>
+                              <br>
+          <div class="form-group col-md-6 mb-3"> 
+                              <br>
+          <label for="age">Age</label>
+          <input type="text"
+                    name="age"
+                    class="form-control"
+                    id="age"
+                    placeholder="Age"
+                    />  
+                              <br>    
+                    </div>
+                              <br>                                                            
+          <div class="form-group col-md-6 mb-3"> 
+                              <br>
+          <label for="song">Favorite Song</label>
+          <input type="text"
+                    name="song"
+                    class="form-control"
+                    id="song"
+                    placeholder="Enter Your Favorite Song"
+                    />  
+                              <br>    
+                    </div>
+                              <br>
+          <div class="form-group col-md-6 mb-3"> 
+                              <br>
+          <label for="artist">Favorite Artist</label>
+          <input type="text"
+                    name="artist"
+                    class="form-control"
+                    id="artist"
+                    placeholder="Favorite Artist"
+                    />  
+                              <br>    
+                    </div>
+                              <br>
+                    
+          <div class="col-lg-12 mt-5">
+          <button class="btn btn-success" id="Submit"
+             onclick="AddData()"> 
+                Add Data 
+                  </button>
+
+          <button class="btn btn-primary" id="Update"
+               onclick="AddData()"> 
+                    Update 
+                    </button>
+                    
+              </div>     
+            </div>        
+           </div>
+           <hr>
+           <div class="row mt-5">
+            <div class="col-lg-12">
+                    <table class="table table-bordered" id="crudTable">
+                      <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Email</th>
+                              <th>Age</th>
+                              <th>Favorite Song</th>
+                              <th>Favorite Artist</th>
+                          </tr>    
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+
+            </div>        
+           </div>
+          </div>
+
+          <script src="script.js"></script>
+
+
+
+ </body>
+</html>
