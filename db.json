@@ -1,0 +1,43 @@
+{
+  "musicLovers": [
+    {
+      "fullName": "Nikki Johnson",
+      "email": "nikki4realz@gmail.com",
+      "age": 45, 
+      "favoriteSong": "Testify to Love and If Tomorrow Never Comes",
+      "favoriteArtist": "Garth Brooks"
+     
+    },
+    {
+      "fullName": "Jenn White",
+      "email": "wolf4lyfe@gmail.com",
+      "age": 45, 
+      "favoriteSong": "The River or The Dance",
+      "favoriteArtist": "Garth Brooks"
+      
+    },
+    {
+      "fullName": "June Johnson",
+      "email": "momma4ever@gmail.com",
+      "age": 45, 
+      "favoriteSong": "Into the Mystic",
+      "favoriteArtist": "Van Morrison"
+      
+    },
+    {
+      "fullName": "Cindy Bourgeois.",
+      "email": "4everinourhearts@heaven.com",
+      "age": 45, 
+      "favoriteSong": "Bridge over Troubled Water",
+      "favoriteArtist": "Simon & Garfunkel"
+      
+    },
+    {
+      "fullName": "Leo Johnson",
+      "email": "Loveallthewayfrom@heaven.com",
+      "age": 45, 
+      "favoriteSong": "Wish You Were Here",
+      "favoriteArtist": "Collin Raye"
+    }
+  ]
+}

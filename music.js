@@ -1,3 +1,6 @@
+const URL_ENDPOINT = "http://localhost:3000/musicLovers"; 
+
+
 function validateForm() {
   var name = document.getElementById("name").value;
   var email = document.getElementById("email").value;
@@ -45,7 +48,8 @@ function showData(){
      }
      else{
           peopleList = JSON.parse(localStorage.getItem("peopleList"))
-}
+          
+     }
      var html = "";
      
      peopleList.forEach(function (element, index) {

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birder's Life List</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body
+    class="bg-image d-flex flex-column min-vh-100"
+    style="
+      background-image: url('images/Untitled\ design.png');
+      min-height: 100vh;
+    "
+  >
+    <header
+      class="bg-info container-fluid p-3 d-flex flex-row justify-content-evenly text-center"
+    >
+      <img
+        src="images/footprints.png"
+        class="img-fluid"
+        alt="bird footprints"
+      />
+      <h1 class="display-2">Your Birding Life List</h1>
+      <img
+        src="images/footprints.png"
+        class="img-fluid"
+        alt="bird footprints"
+      />
+    </header>
+    <div class="container bg-info-subtle p-2">
+      <div class="card m-2">
+        <div class="card-header display-6 text-center bg-info">
+          Add a bird to your Life List
+        </div>
+        <div class="card-body">
+          <form class="row align-items-end g-3" id="addForm">
+            <div class="col-md-8">
+              <label for="birdInput" class="form-label">Bird Observed</label>
+              <input type="text" class="form-control" id="birdInput" required />
+            </div>
+            <div class="col-md-4">
+              <label for="dateInput">Date Observed</label>
+              <input type="date" class="form-control" id="dateInput" />
+            </div>
+            <div class="col-md-6">
+              <label for="locationInput" class="form-label">Location</label>
+              <input
+                type="text"
+                class="form-control"
+                id="locationInput"
+                required
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="notesInput" class="form-label">Notes</label>
+              <input type="text" class="form-control" id="notesInput" />
+            </div>
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button class="btn btn-outline-info" id="submitButton">
+                Add
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="card m-2">
+        <div class="card-header display-6 text-center bg-info">
+          Your Life List
+        </div>
+        <div class="table-responsive">
+          <table class="table table-secondary table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Bird</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Notes</th>
+                <th>Delete</th>
+                <th>Update</th>
+              </tr>
+            </thead>
+            <tbody id="birdTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="updateModal"
+        tabindex="-1"
+        aria-labelledby="updateModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header bg-info-subtle">
+              <h1 class="modal-title fs-5" id="updateModalLabel">
+                Update a bird on your Life List
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body bg-secondary-subtle">
+              <form id="updateForm">
+                <div class="row align-items-end g-3">
+                  <div class="col-md-6">
+                    <label for="updateId"
+                      >Enter the ID of the bird to update</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="updateId"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row align-items-end g-3">
+                  <div class="col-md-8">
+                    <label for="birdUpdate" class="form-label"
+                      >Bird Observed</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="birdUpdate"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-4">
+                    <label for="dateUpdate">Date Observed</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="dateUpdate"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="locationUpdate" class="form-label"
+                      >Location</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="locationUpdate"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="notesUpdate" class="form-label">Notes</label>
+                    <input type="text" class="form-control" id="notesUpdate" />
+                  </div>
+                </div>
+                <button class="btn btn-info mt-3" id="updateButton">
+                  Update
+                </button>
+              </form>
+            </div>
+            <div class="modal-footer bg-info-subtle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+      integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script src=" "></script>
+    <script src="index.js"></script>
+    <footer class="bg-info text-center p-3 mt-auto">
+          <footer class="text-center"> Nicole Johnson Week 12 Coding Assignment - CRUD Final Project · Promineo Tech · ©2023</footer>
+          <footer class="pt-5 my-5 text-muted border-top text-center"> 
+    </footer>
+  </body>
+</html>
