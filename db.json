@@ -1,43 +1,33 @@
 {
   "musicLovers": [
     {
-      "fullName": "Nikki Johnson",
-      "email": "nikki4realz@gmail.com",
-      "age": 45, 
-      "favoriteSong": "Testify to Love and If Tomorrow Never Comes",
-      "favoriteArtist": "Garth Brooks"
-     
+      "musicInput": "Testify to Love",
+      "dateInput": "11/05/1998",
+      "locationInput": "Home, Las Vegas NV",
+      "notesInput": "The day I remembered that I was alive, rememberance of My grandmother"
     },
     {
-      "fullName": "Jenn White",
-      "email": "wolf4lyfe@gmail.com",
-      "age": 45, 
-      "favoriteSong": "The River or The Dance",
-      "favoriteArtist": "Garth Brooks"
-      
+      "musicInput": "If Tomorrow Never Comes",
+      "dateInput": "08/21/1990",
+      "locationInput": "Home, Las Vegas NV",
+      "notesInput": "listened to this song with my pops"
     },
     {
-      "fullName": "June Johnson",
-      "email": "momma4ever@gmail.com",
-      "age": 45, 
-      "favoriteSong": "Into the Mystic",
-      "favoriteArtist": "Van Morrison"
-      
+      "musicInput": "Into the Mystic",
+      "dateInput": "07/16/1994",
+      "locationInput": "Las Vegas, New Mexico",
+      "notesInput": "My mom's favorite song to date..." 
     },
     {
-      "fullName": "Cindy Bourgeois.",
-      "email": "4everinourhearts@heaven.com",
-      "age": 45, 
-      "favoriteSong": "Bridge over Troubled Water",
-      "favoriteArtist": "Simon & Garfunkel"
-      
+      "musicInput": "Bridge over troubled water",
+      "dateInput": "11/27/2022",
+      "locationInput": "We sat in the house - Albuquerque,NM home",
+      "notesInput": "We played this song, on rotation with a collection of Momma Cindy. RIP Mama"
     },
     {
-      "fullName": "Leo Johnson",
-      "email": "Loveallthewayfrom@heaven.com",
-      "age": 45, 
-      "favoriteSong": "Wish You Were Here",
-      "favoriteArtist": "Collin Raye"
-    }
-  ]
+      "musicInput": "The Dance, The River, Wish you were here",
+      "dateInput": "10/05/2020",
+      "locationInput": "Albuquerque,NM home",
+      "notesInput": "Missing my dad, He loved playing his guitar and singing these songs. RIP Daddy"
+    },
 }

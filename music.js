@@ -1,163 +1,71 @@
-const URL_ENDPOINT = "http://localhost:3000/musicLovers"; 
+const URL_ENDPOINT = "http:localhost:3000/musicLovers";
 
+/**CREATE */
 
-function validateForm() {
-  var name = document.getElementById("name").value;
-  var email = document.getElementById("email").value;
-  var age = document.getElementById("age").value; 
-  var song = document.getElementById("song").value;
-  var artist = document.getElementById("artist").value;
+$("#addForm").on("submit", () => {
+  $.post(URL_ENDPOINT, {
+    musicName: $("#musicInput").val(),
+    date: $("#dateInput").val(),
+    location: $("#locationInput").val(),
+    notes: $("#notesInput").val(),
+  });
+});
 
-  if(name == ""){
-     alert("Name is Required"); 
-     return false;
-      }
-
-  if(age == ""){
-     alert("Age is Required");
-     return false; 
-      }
-  else if (age <1){
-          alert("Age must not be zero or less than zero");
-       } 
-
-  if(email == ""){
-          alert("Email is Required"); 
-          return false;
-       } 
-
-  else if (!email.includes("@")){
-          alert("Invalid email address");
-       }     
-
-   if(song == ""){
-          alert("Your Favorite Song is Required"); 
-          return false;
-       } 
-
-       if(artist == ""){
-          alert("Your Favorite Artist is Required"); 
-          return false;
-       } 
-   return true; 
-}
-function showData(){
-     var peopleList; 
-     if(localStorage.getItem("peopleList") == null){
-          peopleList= []; 
-     }
-     else{
-          peopleList = JSON.parse(localStorage.getItem("peopleList"))
-          
-     }
-     var html = "";
-     
-     peopleList.forEach(function (element, index) {
-          html += "<tr>"; 
-          html += "<td>" + element.name + "</td>"; 
-          html += "<td>" + element.email + "</td>"; 
-          html += "<td>" + element.age + "</td>"; 
-          html += "<td>" + element.song + "</td>"; 
-          html += "<td>" + element.artist + "</td>"; 
-          html += 
-          <button onclick="deleteData('+ index +')" class= "btn btn-danger">Delete</button>; 
-          <button onclick="updateData('+ index +')" class= "btn btn-warning m-2">Edit</button>; 
-          html += "</tr>", 
-
-     document.querySelector("crudTable tbody").innerHTML = html; 
-
-// Loads All data when document or page loads
-     document.onload = showData(); 
-
-//fucntion to add data 
-
-     function AddData(){
-
-          if(validateForm() == true){
-                    var name = document.getElementById("name").value; 
-                    var email = document.getElementById("email").value; 
-                    var age = document.getElementById("age").value; 
-                    var song = document.getElementById("song").value; 
-                    var artist = document.getElementById("artist").value; 
-          }
+/**READ */
+getData();
+function getData() {
+  $.get(URL_ENDPOINT).then((data) => {
+    $("tbody").empty();
+    data.map((music) => {
+      $("tbody").append(
+        $(`
+            <tr id="${music.id}">
+              <td>${music.id}</td>
+              <td>${music.musicName}</td>
+              <td>${music.date}</td>
+              <td>${music.location}</td>
+              <td>${music.notes}</td>
+              <td> 
+              <button class="btn btn-danger btn-sm" id="deleteButton" onclick="deleteMusic(${music.id})">Delete</button> 
+              </td>
+              <td> 
+              <button class="btn btn-info btn-sm" id="modalButton${music.id}" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button> 
+              </td>
+            </tr>
+          `)
+      );
+    });
+  });
 }
 
-          var peopleList; 
-          if(localStorage.getItem("peopleList") == null){
-               peopleList= []; 
-          }
-          else{
-               peopleList = JSON.parse(localStorage.getItem("peopleList"))
-          }
-          peopleList.push({
-                    name: name, 
-                    email: email, 
-                    age: age, 
-                    song: song, 
-                    artist: artist,
-          }),
+/**UPDATE */
 
-          localStorage.setItem("peopleList", JSON.stringify(peopleList)); 
-          showData();
-          document.getElementById("name").value = "";
-          document.getElementById("email").value = "";
-          document.getElementById("age").value = "";
-          document.getElementById("song").value = "";
-          document.getElementById("artist").value = ""; 
-     }, 
+function updateMusic(e) {
+  e.preventDefault();
+  let id = $("#updateId").val();
+  $.ajax(`${URL_ENDPOINT}/${id}`, {
+    method: "PUT",
+    data: {
+      musicName: $("#musicUpdate").val(),
+      date: $("#dateUpdate").val(),
+      location: $("#locationUpdate").val(),
+      notes: $("#notesUpdate").val(),
+    },
+  })
+    .then(getData)
+    .then($("#updateModal").modal("hide"));
 }
 
-//Function to delete Data from local storage
-     function deleteData(index){
-          var peopleList; 
-          if(localStorage.getItem("peopleList") == null){
-               peopleList= []; 
-          }
-          else{
-               peopleList = JSON.parse(localStorage.getItem("peopleList"));
-          }
-               peopleList.splice(index, 1);
-               localStorage.setItem("peopleList", JSON.stringify(peopleList)); 
-               showData();
-     }
+$("#updateForm").on("submit", (e) => {
+  updateMusic(e);
+  document.getElementById("updateForm").reset();
+});
 
-// function to update data from local storage, and the submit will show, update will hide
-     function updateData(index){
-          document.getElementById("Submit").style.display = "none"; 
-          document.getElementById("Update").style.display = "block"; 
-          
-          var peopleList; 
-          if(localStorage.getItem("peopleList") == null){
-               peopleList= []; 
-          }
-          else{
-               peopleList = JSON.parse(localStorage.getItem("peopleList"));
-          }
-          document.getElementById("name").value = peopleList[index].name; 
-          document.getElementById("email").value = peopleList[index].email; 
-          document.getElementById("age").value = peopleList[index].age; 
-          document.getElementById("song").value = peopleList[index].song; 
-          document.getElementById("artist").value = peopleList[index].artist; 
+/**DELETE */
 
-     document.querySelector("#Update").onclick = function(){
-        if(validateForm() ==true){
-          peopleList[index].name = document.getElementById("name").value; 
-          peopleList[index].email = document.getElementById("email").value; 
-          peopleList[index].age = document.getElementById("age").value; 
-          peopleList[index].song = document.getElementById("song").value; 
-          peopleList[index].artist = document.getElementById("artist").value; 
-
-          localStorage.setItem("peopleList", JSON.stringify(peopleList)); 
-          showData();
-
-          document.getElementById("name").value = ""; 
-          document.getElementById("email").value = ""; 
-          document.getElementById("age").value = ""; 
-          document.getElementById("song").value = ""; 
-          document.getElementById("artist").value = ""; 
-// the update button will now hide, and submit will show
-          document.getElementById("Submit").style.display = "block"; 
-          document.getElementById("Update").style.display = "none"; 
-        }
-     }
+function deleteMusic(id) {
+  $.ajax(`${URL_ENDPOINT}/${id}`, {
+    method: "DELETE",
+  }).then(getData);
 }
+
