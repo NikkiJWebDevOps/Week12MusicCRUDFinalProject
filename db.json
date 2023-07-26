@@ -1,33 +1,37 @@
 {
   "musicLovers": [
-    {
-      "musicInput": "Testify to Love",
-      "dateInput": "11/05/1998",
-      "locationInput": "Home, Las Vegas NV",
-      "notesInput": "The day I remembered that I was alive, rememberance of My grandmother"
-    },
-    {
-      "musicInput": "If Tomorrow Never Comes",
-      "dateInput": "08/21/1990",
-      "locationInput": "Home, Las Vegas NV",
-      "notesInput": "listened to this song with my pops"
-    },
-    {
-      "musicInput": "Into the Mystic",
-      "dateInput": "07/16/1994",
-      "locationInput": "Las Vegas, New Mexico",
-      "notesInput": "My mom's favorite song to date..." 
-    },
-    {
-      "musicInput": "Bridge over troubled water",
-      "dateInput": "11/27/2022",
-      "locationInput": "We sat in the house - Albuquerque,NM home",
-      "notesInput": "We played this song, on rotation with a collection of Momma Cindy. RIP Mama"
-    },
-    {
-      "musicInput": "The Dance, The River, Wish you were here",
-      "dateInput": "10/05/2020",
-      "locationInput": "Albuquerque,NM home",
-      "notesInput": "Missing my dad, He loved playing his guitar and singing these songs. RIP Daddy"
-    },
+      {
+          "musicInput": "Testify to Love",
+          "dateInput": "11/05/1998",
+          "locationInput": "Home, Las Vegas NV",
+          "notesInput": "The day I remembered that I was alive, remembrance of My grandmother"
+      },
+      {
+          "musicInput": "If Tomorrow Never Comes",
+          "dateInput": "08/21/1990",
+          "locationInput": "Home, Las Vegas NV",
+          "notesInput": "Listened to this song with my pops"
+      },
+      {
+          "musicInput": "Into the Mystic",
+          "dateInput": "07/16/1994",
+          "locationInput": "Las Vegas, New Mexico",
+          "notesInput": "My mom's favorite song to date..."
+      },
+      {
+          "musicInput": "Bridge over troubled water",
+          "dateInput": "11/27/2022",
+          "locationInput": "We sat in the house - Albuquerque,NM home",
+          "notesInput": "We played this song, on rotation with a collection of Momma Cindy. RIP Mama"
+      },
+      {
+          "musicInput": "The Dance, The River, Wish you were here",
+          "dateInput": "10/05/2020",
+          "locationInput": "Albuquerque,NM home",
+          "notesInput": "Missing my dad, He loved playing his guitar and singing these songs. RIP Daddy"
+      }
+  ]
 }
+
+
+

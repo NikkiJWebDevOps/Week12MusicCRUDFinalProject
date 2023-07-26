@@ -1,5 +1,5 @@
 const URL_ENDPOINT = "http:localhost:3000/musicLovers";
-
+const e = (musicLovers); 
 /**CREATE */
 
 $("#addForm").on("submit", () => {
@@ -10,7 +10,7 @@ $("#addForm").on("submit", () => {
     notes: $("#notesInput").val(),
   });
 });
-
+console.log(getData());
 /**READ */
 getData();
 function getData() {
@@ -60,7 +60,7 @@ $("#updateForm").on("submit", (e) => {
   updateMusic(e);
   document.getElementById("updateForm").reset();
 });
-
+console.log(getData());
 /**DELETE */
 
 function deleteMusic(id) {
@@ -69,3 +69,5 @@ function deleteMusic(id) {
   }).then(getData);
 }
 
+console.log(getData());
+console.log(); 
