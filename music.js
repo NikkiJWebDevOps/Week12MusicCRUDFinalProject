@@ -1,8 +1,9 @@
-const URL_ENDPOINT = "http:localhost:3000/musicLovers";
-const e = (musicLovers); 
-/**CREATE */
+const URL_ENDPOINT = "https://645d8efd250a246ae3221d6d.mockapi.io/AreYouReady4Me";
 
-$("#addForm").on("submit", () => {
+/**CREATE / POST */
+
+$("#addForm").on("submit", (event) => {
+  event.preventDefault();
   $.post(URL_ENDPOINT, {
     musicName: $("#musicInput").val(),
     date: $("#dateInput").val(),
@@ -10,7 +11,8 @@ $("#addForm").on("submit", () => {
     notes: $("#notesInput").val(),
   });
 });
-console.log(getData());
+console.log();
+
 /**READ */
 getData();
 function getData() {
@@ -22,7 +24,7 @@ function getData() {
             <tr id="${music.id}">
               <td>${music.id}</td>
               <td>${music.musicName}</td>
-              <td>${music.date}</td>
+              <td>${new Date(music.date).toDateString()}</td>
               <td>${music.location}</td>
               <td>${music.notes}</td>
               <td> 
@@ -40,10 +42,10 @@ function getData() {
 
 /**UPDATE */
 
-function updateMusic(e) {
-  e.preventDefault();
-  let id = $("#updateId").val();
-  $.ajax(`${URL_ENDPOINT}/${id}`, {
+function updateMusic(event) {
+  event.preventDefault();
+  let musicLovers = $("#updateId").val();
+  $.ajax(`${URL_ENDPOINT}/${musicLovers}`, {
     method: "PUT",
     data: {
       musicName: $("#musicUpdate").val(),
@@ -56,11 +58,11 @@ function updateMusic(e) {
     .then($("#updateModal").modal("hide"));
 }
 
-$("#updateForm").on("submit", (e) => {
-  updateMusic(e);
+$("#updateForm").on("submit", (musicLovers) => {
+  updateMusic(musicLovers);
   document.getElementById("updateForm").reset();
 });
-console.log(getData());
+console.log();
 /**DELETE */
 
 function deleteMusic(id) {
@@ -69,5 +71,4 @@ function deleteMusic(id) {
   }).then(getData);
 }
 
-console.log(getData());
 console.log(); 
