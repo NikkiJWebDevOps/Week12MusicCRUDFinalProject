@@ -1,5 +1,6 @@
 const URL_ENDPOINT = "https://645d8efd250a246ae3221d6d.mockapi.io/AreYouReady4Me";
 
+
 /**CREATE / POST */
 
 $("#addForm").on("submit", (event) => {
